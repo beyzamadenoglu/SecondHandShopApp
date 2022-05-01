@@ -1,4 +1,7 @@
 import axios, { URL } from '../constants/axios';
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
 
 export const registerUser = async (credentials)  => {
 
@@ -10,6 +13,9 @@ export const registerUser = async (credentials)  => {
             console.log('Success');
             console.log('User Profile', response.data.user);
             console.log('User Token', response.data.jwt);
+            if (response.data.jwt) { cookies.set('jwt', response.data.jwt, { path: '/' }) }
+            console.log("jwt: ", cookies.get('jwt')); 
+
         })
     
         .catch((error) => {
@@ -18,4 +24,3 @@ export const registerUser = async (credentials)  => {
     
 }
     
- 
