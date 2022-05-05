@@ -1,42 +1,19 @@
-import { Button, Box, TextField } from '@mui/material';
+import React from 'react';
 import { Field, Form, Formik } from 'formik';
-import { YupSchema } from '../constants/YupSchema';
-import { toast } from 'react-toastify';
+import { Button, Box, TextField } from '@mui/material';
 
-const initialValues = {
-    email: '',
-    password: ''
-};
-
-
-const MaterialForm = ({ title, text, service, button_text }) => {
-
-    //email veya şifre yanlışta kullan
-   // toast.error('Emailiniz veya Şifreniz Hatalı.');
-
-   const handleService = async (credentials) => {
-    service(credentials);
-  }
+function AddProductPage() {
 
     return (
-       
-            <div className='MaterialForm'>
+        <div className="add-product">
+            <div className="product-infos">
 
-                <Formik
-                    initialValues={initialValues}
-                    validationSchema={YupSchema}
-
-                    onSubmit={(values, formikHelpers) => {
-                        console.log(values);
-                        handleService(values);
-                        formikHelpers.resetForm();
-                    }}
-                >
+            <h1>Ürün Detayları</h1>
+            <Formik>
 
                     {({ errors, isValid, touched, dirty }) => (
                         <Form>
-                            <h1>{title}</h1>
-                            <p>Fırsatlardan yararlanmak için {text}!</p>
+                            <p></p>
                             <Field
                                 name='email'
                                 type='email'
@@ -63,18 +40,16 @@ const MaterialForm = ({ title, text, service, button_text }) => {
                             <Box height={16} />
                             <Button type='submit' variant='contained' size='large' disabled={!dirty || !isValid}
                             >
-                                {button_text}
+                                {}
                             </Button>
-                            <br/>
-                            <p>Hesabın yok mu?
-                                <a href="javascript:;"> Üye Ol </a>
-                            </p>
                         </Form>
                     )}
                 </Formik>
             </div>
+            <div className="product-images"></div>
+
+        </div>
     )
 }
 
-export default MaterialForm;
-
+export default AddProductPage;

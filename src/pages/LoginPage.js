@@ -1,5 +1,8 @@
 import MaterialForm from '../components/Form';
-import Logo from '../constants/images/logo';
+import Grid from '@mui/material/Grid';
+
+import Logo from '../constants/images/Logo';
+import WomanImage from '../constants/images/Woman';
 
 import { loginUser } from '../services/Login';
 
@@ -10,10 +13,15 @@ function LoginPage() {
     const text = 'giriş yap';
 
     return (
-        <div className='container'>
-            <Logo />
-            <MaterialForm title={title} text={text} service={loginUser} button_text={title}/>
-        </div>
+        <Grid className="login-container">
+            <Grid className="woman-container">
+                <WomanImage/>
+            </Grid>
+            <Grid className="form-container" direction="column">
+                <Logo/>
+                <MaterialForm button_text="Giriş Yap"/>
+            </Grid>
+        </Grid>
     )
 }
 
