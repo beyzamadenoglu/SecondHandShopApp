@@ -10,6 +10,7 @@ import Category from '../components/Category';
 import getFilteredCategories from '../services/CategoryFilter';
 import Offer from '../components/Offer';
 import Deneme from '../components/Dropdown';
+import '../styles/indexpage.css';
 
 function IndexPage() {
   const [product, setProducts] = useState([]);
@@ -41,7 +42,8 @@ function IndexPage() {
 
 
   return (
-    <>
+    <div className="burrito">
+
       <Category categories={categories} handleClick={getFiltered} />
       <Container>
         <Grid container>
@@ -52,7 +54,7 @@ function IndexPage() {
           ))}
         </Grid>
       </Container>
-    </>
+    </div>
   )
 }
 

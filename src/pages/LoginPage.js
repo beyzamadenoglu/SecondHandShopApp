@@ -19,7 +19,7 @@ function LoginPage() {
             </Grid>
             <Grid className="form-container" direction="column">
                 <Logo/>
-                <MaterialForm button_text="Giriş Yap"/>
+                <MaterialForm button_text="Giriş Yap" service={loginUser}/>
             </Grid>
         </Grid>
     )

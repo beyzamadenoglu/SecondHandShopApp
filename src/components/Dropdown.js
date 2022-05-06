@@ -6,7 +6,7 @@ const DropDown = ({ text, options }) => {
 
   return (
     <div className='dropdown'>
-      <DropdownButton id="dropdown-basic-button" title={text}>
+      <DropdownButton id="dropdown-basic-button" title='deneme'>
         <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
         {options?.map((option, index) => <Dropdown.Item>{}</Dropdown.Item>
         )}

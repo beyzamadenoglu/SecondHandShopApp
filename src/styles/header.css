@@ -1,0 +1,19 @@
+.Layout {
+    margin-left: 15vw;
+    margin-right: 15vw;
+    text-align: right;
+    background: white;
+}
+
+.Layout .Logo, .Layout Button {
+    margin: 5px 7px;
+}
+
+.Layout *:first-child {
+    float: left;
+}
+
+.Layout .Logo {
+    height: 5vh;
+    padding: 0;
+}
