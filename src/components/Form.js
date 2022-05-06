@@ -1,6 +1,6 @@
 import { Button, Box, TextField } from '@mui/material';
 import { Field, Form, Formik } from 'formik';
-import { YupSchema } from '../constants/YupSchema';
+import { YupSchema } from '../constants/UserSchema';
 import { toast } from 'react-toastify';
 
 const initialValues = {
@@ -9,7 +9,7 @@ const initialValues = {
 };
 
 
-const MaterialForm = ({ title, text, service, button_text }) => {
+const MaterialForm = ({ title, text, service, button_text, or, forgotPassword}) => {
 
     //email veya şifre yanlışta kullan
    // toast.error('Emailiniz veya Şifreniz Hatalı.');
@@ -60,15 +60,22 @@ const MaterialForm = ({ title, text, service, button_text }) => {
                                 error={Boolean(errors.password) && Boolean(touched.password)}
                                 helperText={Boolean(touched.password) && errors.password}
                             />
+                            {forgotPassword}
                             <Box height={16} />
-                            <Button type='submit' variant='contained' size='large' disabled={!dirty || !isValid}
+                            <Button type='submit' variant='contained' size='large' style={{
+        borderRadius: '8px',
+        backgroundColor: "#4B9CE2",
+        padding: "2px 20px",
+        fontSize: "18px",
+        color: '#FFFFFF',
+        textTransform: 'none'
+    }}
+ disabled={!dirty || !isValid}
                             >
                                 {button_text}
                             </Button>
                             <br/>
-                            <p>Hesabın yok mu?
-                                <a href="javascript:;"> Üye Ol </a>
-                            </p>
+                            {or}
                         </Form>
                     )}
                 </Formik>

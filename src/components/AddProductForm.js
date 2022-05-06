@@ -1,11 +1,11 @@
 import React, {useRef} from 'react';
 import { Field, Form, Formik, ErrorMessage } from 'formik';
-import { Button, Box, TextField } from '@mui/material';
+import { Box } from '@mui/material';
 import Dropdown from '../components/Dropdown';
 import Preview from '../components/PreviewImage';
 import UploadImg from '../constants/images/UploadImg';
-import { YupSchema } from '../constants/YupSchema';
-
+import { YupSchema } from '../constants/ProductSchema';
+import URL from '../constants/axios';
 
 const initialValues = {
     productname: '',
@@ -25,9 +25,12 @@ function AddProductForm() {
                 <h1>Ürün Detayları</h1>
 
                 <Formik  initialValues={initialValues}
-                    validationSchema={YupSchema}
+                  validationSchema={YupSchema}
 
                     onSubmit={(values, formikHelpers, ref) => {
+                        let data = new FormData();
+                        data.append('file', values.file);
+                   //     return axios--
                         console.log(values);
                         formikHelpers.resetForm();
                     }}
@@ -59,6 +62,7 @@ function AddProductForm() {
                                     name='price'
                                     label='Fiyat'
                                     placeholder='Bir Fiyat Girin'
+                                   
                                 />
 
                             </div>
@@ -67,11 +71,11 @@ function AddProductForm() {
                              <h2>Ürün Görseli</h2>
                                 <input 
                                 ref={fileRef}
-                                type='file' 
+                                type='file'
+                                name='file' 
                                 error={Boolean(errors.file) && Boolean(touched.file)}
                                 helperText={Boolean(touched.email) && errors.email}
                                 hidden
-                                name='file' 
                                 onChange={(e) => {
                                     setFieldValue('file', e.target.files[0]);
                                 }} 
@@ -79,12 +83,14 @@ function AddProductForm() {
                                 <UploadImg />
                              {values.file &&  <Preview file={values.file} />}
                             <Box height={16} />
-                            <Button type='submit' variant='contained' size='large'
+                            <button type='button' variant='contained' size='large'
                                 onClick={()=> {fileRef.current.click();
                                 }}
                             >
                                 Görsel Seçin
-                            </Button>
+                            </button>
+
+                            <button type= 'submit '>Submit</button>
                             </div>
                         </Form>
                     )}

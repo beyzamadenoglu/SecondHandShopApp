@@ -51,3 +51,10 @@
 .form-container * {
     margin: auto;
 }
+
+.right{
+    position: relative;
+    right: -34%;
+    color: #b1b1b1;
+    font-size: 12px;
+}
