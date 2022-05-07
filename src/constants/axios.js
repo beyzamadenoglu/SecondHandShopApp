@@ -10,8 +10,8 @@ export const URL = {
     login: '/auth/local',
     brands: '/brands',
     categories: '/categories',
-    color: 'color',
-    offer: 'offer',
-    product: 'products',
-   
+    color: '/color',
+    offers: '/offers',
+    product: '/products',
+    asdf: 'asdfadsf'
 }

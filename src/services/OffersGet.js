@@ -1,15 +1,16 @@
 import axios, { URL } from '../constants/axios';
 
-const getAllProducts = async () => {
+const getOffers = async () => {
     try {
         return await axios
-            .get(URL.product).then((res) => {
+            .get(URL.offers).then((res) => {
                 if (res.status === 200) {
+                    console.log(res);
                     return res.data;
                 }
                 else {
                     return {
-                        error: 'Products not found',
+                        error: 'Offers not found',
                     }
                 }
             });
@@ -20,4 +21,4 @@ const getAllProducts = async () => {
 
 }
 
-export default getAllProducts;
+export default getOffers;

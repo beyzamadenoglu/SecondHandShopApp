@@ -9,15 +9,14 @@ import Add from '../pages/AddProductPage';
 function Router() {
     return(
         <>
-    <Routes>
-        <Route path='/' element={<Login />} />
-        <Route path='/register' element={<Register />} />
-        <Route path='/index' element={<Index />} />
-        <Route path='/account' element={<Account />} />
-        <Route path='/add' element={<Add />} />
-
-    </Routes>
-    </>
+            <Routes>
+                <Route path='/' element={<Login />} />
+                <Route path='/register' element={<Register />} />
+                <Route path='/index' element={<Index />} />
+                <Route path='/account' element={<Account />} />
+                <Route path='/add' element={<Add />} />
+            </Routes>
+        </>
     )
 }
 

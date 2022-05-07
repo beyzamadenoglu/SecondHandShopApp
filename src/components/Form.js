@@ -1,7 +1,10 @@
-import { Button, Box, TextField } from '@mui/material';
+import { Button, Box, TextField, InputBase } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import { Field, Form, Formik } from 'formik';
 import { YupSchema } from '../constants/UserSchema';
 import { toast } from 'react-toastify';
+import { useDispatch, useSelector } from 'react-redux';
+import { userChange } from '../store/userSlice';
 
 const initialValues = {
     email: '',
@@ -11,11 +14,40 @@ const initialValues = {
 
 const MaterialForm = ({ title, text, service, button_text, or, forgotPassword}) => {
 
-    //email veya şifre yanlışta kullan
-   // toast.error('Emailiniz veya Şifreniz Hatalı.');
+    const { user } = useSelector(state => state);
+    //userSliceın içindeki fonksiyonları kullanmamızı/dışardan 
+    // erişebilmemizi ve değiştirebilmemizi sağlıcak
+    const dispatch = useDispatch();
 
-   const handleService = async (credentials) => {
-    service(credentials);
+    const navigate = useNavigate();
+
+    const handleService = async (credentials) => {
+    service(credentials).then(response => {
+        if (response.status === 200) {
+        /*    dispatch(userChange({
+                
+                user: {
+                    token: response.data.jwt,
+                    mail: response.data.user.email,
+
+                } 
+            })) */
+
+            setValues({token: response.data.jwt, mail: response.data.user.email});
+
+            navigate('/index');
+        } else {
+            toast.error('Emailiniz veya Şifreniz Hatalı.');
+        }
+    });
+  }
+
+//1. user slice, 2. user const user
+  console.log('notheh', user.user.token);
+  console.log('hehe', user.user.mail);
+  console.log('heheeee', user.isAuth);
+   const setValues = value =>{
+       dispatch(userChange({user:value}))
   }
 
     return (
@@ -29,33 +61,32 @@ const MaterialForm = ({ title, text, service, button_text, or, forgotPassword}) 
                     onSubmit={(values, formikHelpers) => {
                         console.log(values);
                         handleService(values);
-                        formikHelpers.resetForm();
+                     //   formikHelpers.resetForm();
                     }}
                 >
 
                     {({ errors, isValid, touched, dirty }) => (
-                        <Form>
+                        <Form class='credentials-form'>
                             <h1>{title}</h1>
                             <p>Fırsatlardan yararlanmak için {text}!</p>
+                            <span>Email</span>
                             <Field
                                 name='email'
                                 type='email'
-                             
-                                as={TextField}
+                                placeholder='Email@example.com'
+                                as={InputBase}
                                 variant='filled'
-                                label='Email'
                                 fullWidth
                                 error={Boolean(errors.email) && Boolean(touched.email)}
                                 helperText={Boolean(touched.email) && errors.email}
                             />
-                            <Box height={16} />
+                            <span>Şifre</span>
                             <Field
                                 name='password'
                                 type='password'
                 
-                                as={TextField}
+                                as={InputBase}
                                 variant='filled'
-                                label='Password'
                                 fullWidth
                                 error={Boolean(errors.password) && Boolean(touched.password)}
                                 helperText={Boolean(touched.password) && errors.password}

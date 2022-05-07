@@ -1,16 +1,20 @@
 import React, { useState, useEffect } from 'react'
 import Logo from '../constants/images/IndexBanner';
 import Grid from '@mui/material/Grid';
-import Card from '@mui/material/Card';
 import { Container } from '@mui/material';
 import ProductCard from '../components/ProductCard';
+import { AppBar, Toolbar, Typography, Tabs, Tab, useMediaQuery, Menu, MenuItem, Button } from "@material-ui/core"
+
 import getAllProducts from '../services/ProductsService';
 import getAllCategories from '../services/Categories';
 import Category from '../components/Category';
 import getFilteredCategories from '../services/CategoryFilter';
-import Offer from '../components/Offer';
-import Deneme from '../components/Dropdown';
+
+
+import Account from '../components/Account';
+
 import '../styles/indexpage.css';
+
 
 function IndexPage() {
   const [product, setProducts] = useState([]);
@@ -22,39 +26,38 @@ function IndexPage() {
       getCategories();
     };
     fetchData();
-  }, [product]);
+  }, []);
 
   const getProducts = async () => {
-    const data = await getAllProducts();
-    setProducts(data);
+    getAllProducts().then((data) => {
+      setProducts(data);
+    });
   }
 
   const getCategories = async () => {
-    const data = await getAllCategories();
-    setCategories(data);
+    getAllCategories().then((data) =>  {
+      setCategories(data);
+    });
   }
 
   const getFiltered = async id => {
-    const data = await getFilteredCategories(id);
-    setProducts(data);
-    console.log('datcat', data);
+    getFilteredCategories(id).then((data) => {
+      setProducts(data);
+    });
   }
 
-
   return (
-    <div className="burrito">
-
+      <div className="index-container">
+    <Account />
       <Category categories={categories} handleClick={getFiltered} />
-      <Container>
-        <Grid container>
+        <div>
           {product?.map(product => (
-            <Grid item key={product.id} xs={12} md={6} lg={4} >
+            <Grid item key={product.id} xs={12} >
               <ProductCard product={product} />
             </Grid>
           ))}
-        </Grid>
-      </Container>
-    </div>
+        </div>
+      </div>
   )
 }
 
