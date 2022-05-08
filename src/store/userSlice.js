@@ -14,7 +14,7 @@ const initialState = {
 export const login = createAsyncThunk(
     'user/login',
     async () => {
-       
+     
     }
 )
 
@@ -30,10 +30,6 @@ const userSlice = createSlice({
             state.isAuth =  true;
         }
     },
-
-    extraReducers: (builder) => {
-        builder.addCase(login.pending)
-    }
 
 })
 

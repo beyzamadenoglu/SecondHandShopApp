@@ -1,29 +1,28 @@
 import React, { useState, useEffect } from 'react'
-import Logo from '../constants/images/IndexBanner';
-import Grid from '@mui/material/Grid';
-import { Container } from '@mui/material';
 import ProductCard from '../components/ProductCard';
-import { AppBar, Toolbar, Typography, Tabs, Tab, useMediaQuery, Menu, MenuItem, Button } from "@material-ui/core"
-
 import getAllProducts from '../services/ProductsService';
 import getAllCategories from '../services/Categories';
+import getCategoryNo from '../services/CategoriesNo';
 import Category from '../components/Category';
 import getFilteredCategories from '../services/CategoryFilter';
+import Layout from '../components/Layout';
 
-
-import Account from '../components/Account';
+import Banner from '../constants/images/Banner';
 
 import '../styles/indexpage.css';
 
-
+//13 + 2 kategri görüntüle
 function IndexPage() {
   const [product, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [categoryNo, setCategoryNo] = useState(0);
+
 
   useEffect(() => {
     async function fetchData() {
       getProducts();
       getCategories();
+      getCategoriesNo();
     };
     fetchData();
   }, []);
@@ -35,7 +34,7 @@ function IndexPage() {
   }
 
   const getCategories = async () => {
-    getAllCategories().then((data) =>  {
+    getAllCategories().then((data) => {
       setCategories(data);
     });
   }
@@ -46,18 +45,25 @@ function IndexPage() {
     });
   }
 
+  const getCategoriesNo = async () => {
+    getCategoryNo().then((data) => {
+      setCategoryNo(data);
+    });
+  }
+
+
   return (
+    <>
+      <Layout />
       <div className="index-container">
-    <Account />
-      <Category categories={categories} handleClick={getFiltered} />
-        <div>
+        <Category categories={categories} handleClick={getFiltered} />
+        <div className='products'>
           {product?.map(product => (
-            <Grid item key={product.id} xs={12} >
-              <ProductCard product={product} />
-            </Grid>
+            <ProductCard product={product} />
           ))}
         </div>
       </div>
+    </>
   )
 }
 

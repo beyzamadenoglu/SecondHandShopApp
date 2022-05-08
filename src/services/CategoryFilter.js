@@ -5,7 +5,8 @@ const getFilteredCategories = async (id) => {
         return await axios
             .get(`${URL.categories}/${id}`).then((res) => {
                 if (res.status === 200) {
-                    return res.data;
+                    console.log(res.data);
+                    return res.data.products;
                 }
                 else {
                     return {

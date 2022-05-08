@@ -1,16 +1,15 @@
 import axios, { URL } from '../constants/axios';
 
-const getOffers = async () => {
+const getCategoriesNo = async () => {
     try {
         return await axios
-            .post(URL.offers).then((res) => {
+            .get(`${URL.categories}/count`).then((res)=> {
                 if (res.status === 200) {
-                    console.log(res);
                     return res.data;
                 }
                 else {
                     return {
-                        error: 'Offer not send',
+                        error: 'Status not found',
                     }
                 }
             });
@@ -21,4 +20,5 @@ const getOffers = async () => {
 
 }
 
-export default getOffers;
+export default getCategoriesNo;
+

@@ -1,4 +1,5 @@
 import Product from '../components/Product';
+import Layout from '../components/Layout';
 
 function ProductPage() {
 
@@ -7,7 +8,8 @@ function ProductPage() {
 
     return (
         <>
-            <Product image={} name={} brand={} color={} status={} price={} description={}  />
+            <Layout />
+            <Product image={ } name={ } brand={ } color={ } status={ } price={ } description={ } />
         </>
     )
 }

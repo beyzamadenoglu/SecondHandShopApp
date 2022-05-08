@@ -1,7 +1,5 @@
 import * as yup from 'yup';
 
-const SUPPORTED_FORMATS = ['image/png','image/jpg','image/jpeg'];
-
 export const YupSchema = yup.object().shape({
     email: yup
         .string()

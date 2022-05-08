@@ -4,11 +4,11 @@ import { useSelector } from 'react-redux';
 const Account = () => {
     //değişim yapmayacağımız için dispatchi kullanmıyoruz
     const { user } = useSelector(state => state);
-    console.log(user.user.token);
+    console.log(user?.user?.token);
 
   return (
-    <div>{user.user.mail}</div>
-    
+    <div>{user?.user?.mail}</div>
+
   )
 }
 

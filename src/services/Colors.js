@@ -1,16 +1,15 @@
 import axios, { URL } from '../constants/axios';
 
-const getOffers = async () => {
+const getAllColors = async () => {
     try {
         return await axios
-            .post(URL.offers).then((res) => {
+            .get(URL.color).then((res)=> {
                 if (res.status === 200) {
-                    console.log(res);
                     return res.data;
                 }
                 else {
                     return {
-                        error: 'Offer not send',
+                        error: 'Categories not found',
                     }
                 }
             });
@@ -21,4 +20,5 @@ const getOffers = async () => {
 
 }
 
-export default getOffers;
+export default getAllColors;
+

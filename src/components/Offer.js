@@ -8,7 +8,6 @@ const initialValues = {
     offer: 0
 };
 
-
 const makeOffer = async offer => {
 
 }

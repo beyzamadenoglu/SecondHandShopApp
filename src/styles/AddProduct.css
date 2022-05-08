@@ -1,0 +1,59 @@
+.product-infos{
+    background: f2f2f2;
+    height: auto;
+    width: 70%;
+}
+
+.form{
+
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin-left: -10%;
+    height: 100%;
+    width: auto;
+    max-width: 100%;
+    background: white;
+
+}
+
+form h1{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+.formik-input{
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: hidden;
+    background-color: #eee;
+    width: 100%;
+}
+
+.pro{
+    margin: 0 11%;
+    width: 40%;
+    height: auto;
+}
+
+.desc{
+    height: 25%;
+}
+
+.desc text{
+
+}
+
+#dropdown-basic-button{
+    background-color: #F4F4F4;
+    border-color: #F4F4F4;
+    color: #99A0A7;
+    width: 100%
+}
+
+.container-product{
+    background:#F2F2F2;
+}
+

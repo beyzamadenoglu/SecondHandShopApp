@@ -14,3 +14,26 @@
     background: grey;
     border-bottom: 1px solid black;
 }
+
+.products{
+    margin: auto;
+    width: 59%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 2px; /* this */
+    padding-bottom: 8%;
+}
+
+.off{
+    position: relative;
+    border: 1px solid var(--white);
+    background-color: transparent;
+    margin-top: 15px;
+    height: auto;
+    padding: 6px 10px;
+    border-radius: 8px;
+}
+.nav-item {
+    cursor: pointer;
+}

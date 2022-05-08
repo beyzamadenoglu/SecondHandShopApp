@@ -1,17 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Dropdown, DropdownButton } from "react-bootstrap";
 
 
 const DropDown = ({ text, options }) => {
 
+  const [dropdown, setDropdown] = useState('');
+
+  function changeValue(e) {
+     setDropdown({dropDownValue: e.currentTarget.textContent})
+     console.log(dropdown)
+    }
+
   return (
-    <div className='dropdown'>
-      <DropdownButton id="dropdown-basic-button" title='deneme'>
-        <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-        {options?.map((option, index) => <Dropdown.Item>{}</Dropdown.Item>
+    <>
+      <DropdownButton width="lg" block   id="dropdown-basic-button" title={text}>
+        {options?.map((option) => <Dropdown.Item >{option?.name}</Dropdown.Item>
         )}
+        <Dropdown.Item nav caret>
+    <div onClick={changeValue}>{dropdown}</div>
+</Dropdown.Item>
+
       </DropdownButton>
-    </div>
+    </>
   );
 }
 
