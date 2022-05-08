@@ -1,7 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-
-//burada stateleri tutuyoruz
 const initialState = {
     user: {},
     token: null,
@@ -18,7 +16,6 @@ export const login = createAsyncThunk(
     }
 )
 
-//statelerle değiştirmek istediğimiz dataları tutuyoruz
 const userSlice = createSlice({
     name: 'user',
     initialState,

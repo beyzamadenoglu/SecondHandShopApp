@@ -9,7 +9,7 @@ const getAllColors = async () => {
                 }
                 else {
                     return {
-                        error: 'Categories not found',
+                        error: 'Colors not found',
                     }
                 }
             });

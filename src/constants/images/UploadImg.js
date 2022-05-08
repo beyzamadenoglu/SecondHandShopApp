@@ -1,6 +1,6 @@
 import React from 'react';
 
-const UploadImg = (props) => {
+const UploadImg = () => {
 
     return (
         <svg width="30" height="29" viewBox="0 0 30 29" fill="none">

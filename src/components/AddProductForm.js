@@ -82,7 +82,6 @@ function AddProductForm() {
                 onSubmit={(values, formikHelpers, ref) => {
                     let data = new FormData();
                     data.append('file', values.file);
-                    //     return axios--
                     console.log(values);
                     formikHelpers.resetForm();
                 }}

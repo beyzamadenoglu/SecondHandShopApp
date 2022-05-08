@@ -8,6 +8,12 @@
 
 .banner {
     width: 75%;
+    margin: auto;
+    width: 59%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
 }
 
 .nav-item:hover {

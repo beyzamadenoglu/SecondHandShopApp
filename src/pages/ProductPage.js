@@ -9,7 +9,7 @@ function ProductPage() {
     return (
         <>
             <Layout />
-            <Product image={ } name={ } brand={ } color={ } status={ } price={ } description={ } />
+            <Product image={} name={ } brand={ } color={ } status={ } price={ } description={ } />
         </>
     )
 }

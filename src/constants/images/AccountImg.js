@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AccountImg = (props) => {
+const AccountImg = () => {
 
     return (
         <svg width="38" height="38" viewBox="0 0 38 38" fill="none" >

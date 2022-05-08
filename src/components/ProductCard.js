@@ -1,13 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import Logo from '../constants/images/IndexBanner';
 import Card from '@mui/material/Card';
-import CardHeader from '@mui/material/CardHeader';
 import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
 import CardMedia from '@mui/material/CardMedia';
-import CardContent from '@mui/material/CardContent';
-import axios, { baseURL } from '../constants/axios';
+import { baseURL } from '../constants/axios';
 
 
 const ProductCard = ({ product }) => {

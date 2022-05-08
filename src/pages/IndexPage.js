@@ -7,12 +7,19 @@ import Category from '../components/Category';
 import getFilteredCategories from '../services/CategoryFilter';
 import Layout from '../components/Layout';
 
+import { useSelector } from 'react-redux';  
+
+
 import Banner from '../constants/images/Banner';
 
 import '../styles/indexpage.css';
 
-//13 + 2 kategri görüntüle
 function IndexPage() {
+
+  const { user } = useSelector(state => state);
+
+  const isAuth = user.user.isAuth;
+
   const [product, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [categoryNo, setCategoryNo] = useState(0);
@@ -23,6 +30,7 @@ function IndexPage() {
       getProducts();
       getCategories();
       getCategoriesNo();
+      console.log('off', isAuth)
     };
     fetchData();
   }, []);
@@ -55,6 +63,7 @@ function IndexPage() {
   return (
     <>
       <Layout />
+      <Banner />
       <div className="index-container">
         <Category categories={categories} handleClick={getFiltered} />
         <div className='products'>

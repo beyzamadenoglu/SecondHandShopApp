@@ -1,13 +1,13 @@
 import React from 'react'
-import Account from '../components/Account';
 import Layout from '../components/Layout';
-
+import { useSelector } from 'react-redux';  
 
 function MyAccountPage() {
 
     return (
         <>
-            <Account />
+        <Layout />
+         
         </>
     )
 }

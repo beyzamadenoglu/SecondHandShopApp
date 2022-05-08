@@ -1,5 +1,5 @@
 import React from 'react';
-import { Nav } from 'react-bootstrap';
+
 
 const Category = ({ categories, handleClick }) => {
 

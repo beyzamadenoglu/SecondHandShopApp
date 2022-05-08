@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Box, TextField, InputBase } from '@mui/material';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { Button, Box, InputBase } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import { Field, Form, Formik } from 'formik';
 import { YupSchema } from '../constants/UserSchema';
 import { toast } from 'react-toastify';
@@ -14,7 +14,7 @@ const initialValues = {
 
 
 const MaterialForm = ({ title, text, service, button_text, or, forgotPassword }) => {
-  
+
     const [auth, setAuth] = useState(false);
     const { user } = useSelector(state => state);
     const dispatch = useDispatch();
@@ -33,9 +33,9 @@ const MaterialForm = ({ title, text, service, button_text, or, forgotPassword })
         });
     }
 
-  
 
-     const setValues = value => {
+
+    const setValues = value => {
         dispatch(userChange({ user: value }))
         console.log('bbu nedir', user.isAuth);
     }
@@ -46,7 +46,7 @@ const MaterialForm = ({ title, text, service, button_text, or, forgotPassword })
             setValues();
         };
         fetchData();
-      }, [auth]);
+    }, [auth]);
 
 
     return (
@@ -109,7 +109,6 @@ const MaterialForm = ({ title, text, service, button_text, or, forgotPassword })
                     </Form>
                 )}
             </Formik>
-            {user.loading && <div> beelkekekellele</div>}
         </div>
     )
 }
