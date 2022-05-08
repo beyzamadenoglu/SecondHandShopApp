@@ -1,3 +1,15 @@
+Proje hala geliştirme aşamasında ve belli başlı fazlasıyla eksiklikleri var.
+
+1) Responsive yapı ve style
+2) Offers
+3) Authenticate ile ilgili bazı buglar
+4) Product görüntüleme/ekleme ve satın alma.
+
+Zaman yönetimi sıkıntısı nedeniyle yetiştiremedim, fakat kendimi geliştirme amacıyla proje bitiş tarihinden sonra da geliştirmeye devam edeceğim ve burayı güncelleyeceğim.
+
+Teşekkürler.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
